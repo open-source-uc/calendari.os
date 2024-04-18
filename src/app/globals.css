@@ -2,6 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-.fc-view-harness {
-  max-height: calc(100vh - 66px);
+.fc {
+  height: calc(100vh - 102px);
+}
+
+.fc-header-toolbar {
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+.fc-toolbar-title {
+  text-transform: capitalize;
+}
+
+.fc-scrollgrid-section:nth-child(2) {
+  display: none;
+}
+
+.fc-col-header {
+  text-transform: capitalize;
+}
+
+.fc .fc-button-primary {
+  background: none !important;
+  border: none !important;
+  color: #71717a !important;
+  box-shadow: none !important;
+}
+
+.fc-prev-button:not(:disabled):hover,
+.fc-next-button:not(:disabled):hover {
+  color: #0176DE !important;
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+  background-color: rgba(229, 229, 229, 0.4);
+}
+
+.fc .fc-timegrid-col.fc-day-today {
+  background-color: rgba(229, 229, 229, 0.4);
+}
+
+.sidebar {
+  position: fixed;
+  left: -100vw;
+  z-index: 15;
+  min-height: 100vh;
+  min-width: 280px;
+  transition: left .3s linear;
+}
+
+.sidebar.show {
+  left: 0;
+  border-right: 1px solid #d4d4d8;
 }
