@@ -43,6 +43,8 @@ export default function Calendar() {
         },
       }}
       titleFormat={{ year: 'numeric', month: 'long' }}
+      dayHeaderFormat={{weekday: 'short', day: 'numeric'}}
+      firstDay={1}
     />
   )
 }

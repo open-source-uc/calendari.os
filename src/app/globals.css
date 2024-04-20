@@ -6,9 +6,13 @@
   height: calc(100vh - 102px);
 }
 
-.fc-header-toolbar {
+.fc .fc-toolbar.fc-header-toolbar {
   padding-left: 18px;
   padding-right: 18px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin-bottom: 0;
+  border-left: 1px solid #d4d4d8;
 }
 
 .fc-toolbar-title {
@@ -32,7 +36,7 @@
 
 .fc-prev-button:not(:disabled):hover,
 .fc-next-button:not(:disabled):hover {
-  color: #0176DE !important;
+  color: #0176de !important;
 }
 
 .fc .fc-daygrid-day.fc-day-today {
@@ -44,15 +48,17 @@
 }
 
 .sidebar {
-  position: fixed;
   left: -100vw;
-  z-index: 15;
-  min-height: 100vh;
-  min-width: 280px;
-  transition: left .3s linear;
+  transition: left 0.3s linear;
 }
 
 .sidebar.show {
   left: 0;
   border-right: 1px solid #d4d4d8;
+}
+
+@media screen and (min-width: 1024px) {
+  .fc {
+    height: 100vh;
+  }
 }

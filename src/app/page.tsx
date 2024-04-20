@@ -10,9 +10,12 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-[100vh] flex flex-col items-center justify-center">
-      <div id="sidebar" className="sidebar bg-white p-6 flex flex-col gap-4">
-        <div onClick={handleMenu}>
+    <main className="min-h-[100vh] flex flex-col items-center justify-center lg:flex-row">
+      <div
+        id="sidebar"
+        className="sidebar fixed z-10 bg-white flex flex-col gap-4 min-h-[100vh] min-w-[75%] lg:relative lg:min-w-64 lg:left-0 lg:gap-0"
+      >
+        <div onClick={handleMenu} className="lg:hidden">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32"
@@ -23,7 +26,7 @@ export default function Home() {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="text-zinc-600"
+            className="text-zinc-600 hover:text-[#0176DE]"
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M5 12l14 0" />
@@ -31,17 +34,17 @@ export default function Home() {
             <path d="M5 12l6 -6" />
           </svg>
         </div>
-        <div>
-          <h1 className="text-xl">📆 Calendari.os</h1>
+        <div className='flex justify-center items-center p-6 lg:h-[67px] lg:border-b'>
+          <h1 className="text-xl text-center">📆 Calendari.os</h1>
         </div>
-        <div>
+        <div className='p-6 border-b'>
           <p>Minimap view</p>
         </div>
-        <div>
+        <div className='p-6'>
           <p>Filtros</p>
         </div>
       </div>
-      <div className="relative w-full flex justify-center items-center gap-4 px-2 py-2 border-b border-zinc-300 mb-6">
+      <div className="relative w-full flex justify-center items-center gap-4 px-2 py-2 border-b border-zinc-300 lg:hidden">
         <div className="absolute left-4" onClick={handleMenu}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
