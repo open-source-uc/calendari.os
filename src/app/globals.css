@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .fc {
-  height: calc(100vh - 102px);
+  height: calc(100vh - 77px);
 }
 
 .fc .fc-toolbar.fc-header-toolbar {

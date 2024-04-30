@@ -1,9 +1,10 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import FullCalendar from '@fullcalendar/react'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import esLocale from '@fullcalendar/core/locales/es'
+import FullCalendar from '@fullcalendar/react'
+import googleCalendarPlugin from '@fullcalendar/google-calendar'
 
 export default function Calendar() {
   const [viewDays, setViewDays] = useState(3)
@@ -27,7 +28,7 @@ export default function Calendar() {
 
   return (
     <FullCalendar
-      plugins={[timeGridPlugin]}
+      plugins={[timeGridPlugin, googleCalendarPlugin]}
       initialView={'timeGridCustomDays'}
       headerToolbar={{
         left: 'title',
@@ -35,7 +36,6 @@ export default function Calendar() {
       }}
       locale={esLocale}
       nowIndicator={true}
-      eventSources={[{ url: '' }]}
       views={{
         timeGridCustomDays: {
           type: 'timeGrid',
@@ -43,8 +43,16 @@ export default function Calendar() {
         },
       }}
       titleFormat={{ year: 'numeric', month: 'long' }}
-      dayHeaderFormat={{weekday: 'short', day: 'numeric'}}
+      dayHeaderFormat={{ weekday: 'short', day: 'numeric' }}
       firstDay={1}
+      googleCalendarApiKey={process.env.NEXT_PUBLIC_API_KEY_GOOGLE_CALENDAR}
+      eventSources={[
+        {
+          googleCalendarId: process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_ID_1,
+          className: 'Blocks',
+          backgroundColor: '#1787C5',
+        },
+      ]}
     />
   )
 }

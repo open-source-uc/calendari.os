@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Calendar from './components/Calendar'
+import MiniCalendar from './components/MiniCalendar'
 
 export default function Home() {
   const handleMenu = () => {
@@ -11,11 +12,11 @@ export default function Home() {
 
   return (
     <main className="min-h-[100vh] flex flex-col items-center justify-center lg:flex-row">
-      <div
+      <aside
         id="sidebar"
-        className="sidebar fixed z-10 bg-white flex flex-col gap-4 min-h-[100vh] min-w-[75%] lg:relative lg:min-w-64 lg:left-0 lg:gap-0"
+        className="sidebar fixed z-10 bg-white flex flex-col gap-4 min-h-[100vh] w-72 lg:relative lg:min-w-64 lg:left-0 lg:gap-0 lg:w-96"
       >
-        <div onClick={handleMenu} className="lg:hidden">
+        <div onClick={handleMenu} className="px-2 py-2 lg:hidden">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32"
@@ -34,16 +35,19 @@ export default function Home() {
             <path d="M5 12l6 -6" />
           </svg>
         </div>
-        <div className='flex justify-center items-center p-6 lg:h-[67px] lg:border-b'>
+        <div className="flex justify-center items-center p-6 lg:h-[67px] lg:border-b">
           <h1 className="text-xl text-center">📆 Calendari.os</h1>
         </div>
-        <div className='p-6 border-b'>
+        <div className="p-6 border-b">
           <p>Minimap view</p>
+          <div>
+            <MiniCalendar />
+          </div>
         </div>
-        <div className='p-6'>
+        <div className="p-6">
           <p>Filtros</p>
         </div>
-      </div>
+      </aside>
       <div className="relative w-full flex justify-center items-center gap-4 px-2 py-2 border-b border-zinc-300 lg:hidden">
         <div className="absolute left-4" onClick={handleMenu}>
           <svg
@@ -70,7 +74,7 @@ export default function Home() {
           <p className="text-sm text-left text-zinc-500">By OSUC</p>
         </div>
       </div>
-      <section className="w-full h-full">
+      <section className="w-full h-full" id="calendar_section">
         <Calendar />
       </section>
     </main>
